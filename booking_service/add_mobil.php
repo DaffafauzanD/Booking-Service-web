@@ -57,6 +57,10 @@
                         <td><input type="date" name="mobil_booking_tgl" require></td>
                     </tr>
                     <tr>
+                        <td><b>jam booking</td>
+                        <td><input type="time" name="mobil_booking_wkt" require></td>
+                    </tr>
+                    <tr>
                         <td></td>
                         <td>
                             <input type="submit" name="save" value="save" require>

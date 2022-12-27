@@ -39,6 +39,7 @@
                     <th>address</th>
                     <th>phone</th>
                     <th>tanggal booking</th>
+                    <th>waktu booking</th>
                     <th colspan="2">action</th>
                 </tr>
                 <?php
@@ -57,6 +58,7 @@
                     <td><?php echo $data['mobil_address']; ?></td>
                     <td><?php echo $data['mobil_phone']; ?></td>
                     <td><?php echo $data['mobil_booking_tgl']; ?></td>
+                    <td><?php echo $data['mobil_booking_wkt']; ?></td>
                     <td><a href="edit_mobil.php?id=<?= $data[
                         'no_id_kendaraan'
                     ] ?>">Edit mobil</a></td>

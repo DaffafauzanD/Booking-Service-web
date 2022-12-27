@@ -10,7 +10,8 @@ if (isset($_POST['save'])) {
               mobil_owner = '$_POST[mobil_owner]',
               mobil_address = '$_POST[mobil_address]',
               mobil_phone = '$_POST[mobil_phone]',
-              mobil_booking_tgl = '$_POST[mobil_booking_tgl]'
+              mobil_booking_tgl = '$_POST[mobil_booking_tgl]',
+              mobil_booking_tgl = '$_POST[mobil_booking_wkt]'
               WHERE no_id_kendaraan = '$_POST[no_id_kendaraan]';
               ";
 

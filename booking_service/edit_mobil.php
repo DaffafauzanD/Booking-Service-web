@@ -59,6 +59,12 @@
                 ] ?>" require></td>
             </tr>
             <tr>
+                <td>tgl booking</td>
+                <td><input type="date" name="mobil_booking_wkt" value="<?= $data[
+                    'mobil_booking_wkt'
+                ] ?>" require></td>
+            </tr>
+            <tr>
                 <td></td>
                 <td>
                     <input type="submit" name="save" value="save" require>
