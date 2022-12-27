@@ -14,64 +14,58 @@
             <h1>PT.Onder Jaya</h1>
         </div>
     </div>
-    <div class="container">
-        <div class="inputD" style="overflow-x:auto;">
-            <form method="post" action="create_mobil.php">
-                <table>
-                    <tr>
-                        <td>
-                            <h1>Form service mobil</h1>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><b>Tipe mobil</b></td>
-                        <td><input type="text" name="mobil_type" require></td>
-                    </tr>
-                    <tr>
-                        <td><b>No plat mobil</td>
-                        <td>
-                            <input type="text" name="mobil_no_plat" required>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><b>keluhan mobil</b></td>
-                        <td><input type="text" name="mobil_komplain" require></td>
-                    </tr>
-                    <tr>
-                        <td><b>nama owner</td>
-                        <td>
-                            <input type="text" name="mobil_owner" require>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><b>Address</td>
-                        <td><textarea name="mobil_address" class="textarea"></textarea>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><b>Phone</td>
-                        <td><input type="number" name="mobil_phone" require></td>
-                    </tr>
-                    <tr>
-                        <td><b>tgl booking</td>
-                        <td><input type="date" name="mobil_booking_tgl" require></td>
-                    </tr>
-                    <tr>
-                        <td><b>jam booking</td>
-                        <td><input type="time" name="mobil_booking_wkt" require></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>
-                            <input type="submit" name="save" value="save" require>
-                            <input type="reset" name="reset" value="reset" require>
-                        </td>
-                    </tr>
-                </table>
-                <p><a href="read_mobil.php">CANCEL</a></p>
-            </form>
-        </div>
-    </div>
+    <section class="booking">
+        <h1>Form service mobil</h1>
+        <form method="post" action="create_mobil.php">
+            <div class="flex">
+                <div class="inputD" style="overflow-x:auto;">
+                    <div>
+                        <label>Tipe mobil</label>
+                        <input type="text" name="mobil_type" require>
+                    </div>
+
+                    <div>
+                        <label>No plat mobil</label>
+
+                        <input type="text" name="mobil_no_plat" placeholder="B 1234 TES" required>
+                    </div>
+
+                    <div>
+                        <label>layanan servis</label>
+                        <input type="text" name="mobil_komplain" require>
+                    </div>
+                    <div>
+                        <label>nama owner</label>
+
+                        <input type="text" name="mobil_owner" require>
+                    </div>
+
+                    <div>
+                        <label>Address</label>
+                        <textarea name="mobil_address" class="textarea"></textarea>
+                    </div>
+                    <div>
+                        <label>Phone</label>
+                        <input type="number" name="mobil_phone" require>
+                    </div>
+                    <div>
+                        <label>tgl booking</label>
+                        <input type="date" name="mobil_booking_tgl" require>
+                    </div>
+                    <div>
+                        <label>jam booking</label>
+                        <input type="time" name="mobil_booking_wkt" require>
+                    </div>
+
+                    <input type="submit" name="save" value="save" require>
+                    <input type="reset" name="reset" value="reset" require>
+
+                    <p><a href="read_mobil.php">CANCEL</a></p>
+
+                </div>
+            </div>
+        </form>
+    </section>
 </body>
 
 </html>

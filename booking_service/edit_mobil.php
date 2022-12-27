@@ -14,69 +14,74 @@
     $mobils = mysqli_query($db_connection, $query);
     $data = mysqli_fetch_assoc($mobils);
     ?>
-    <form method="post" action="update_mobil.php">
-        <table>
-            <tr>
-                <td>tipe mobil</td>
-                <td><input type="text" name="mobil_type" value="<?= $data[
-                    'mobil_type'
-                ] ?>" require></td>
-            </tr>
-            <tr>
-                <td>no plat mobil</td>
-                <td><input type="text" name="mobil_no_plat" value="<?= $data[
-                    'mobil_no_plat'
-                ] ?>" require></td>
-            </tr>
-            <tr>
-                <td>keluhan mobil</td>
-                <td><input type="text" name="mobil_komplain" value="<?= $data[
-                    'mobil_komplain'
-                ] ?>" require></td>
-            </tr>
-            <tr>
-                <td>nama owner</td>
-                <td><input type="text" name="mobil_owner" value="<?= $data[
-                    'mobil_owner'
-                ] ?>" require></td>
-            </tr>
-            <tr>
-                <td>address</td>
-                <td><input type="textarea" name="mobil_address" value="<?= $data[
-                    'mobil_address'
-                ] ?>" require></td>
-            </tr>
-            <tr>
-                <td>Phone</td>
-                <td><input type="number" name="mobil_phone" value="<?= $data[
-                    'mobil_phone'
-                ] ?>" require></td>
-            </tr>
-            <tr>
-                <td>tgl booking</td>
-                <td><input type="date" name="mobil_booking_tgl" value="<?= $data[
-                    'mobil_booking_tgl'
-                ] ?>" require></td>
-            </tr>
-            <tr>
-                <td>tgl booking</td>
-                <td><input type="date" name="mobil_booking_wkt" value="<?= $data[
-                    'mobil_booking_wkt'
-                ] ?>" require></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
+    <section>
+        <form method="post" action="update_mobil.php">
+            <div>
+                <div>
+                    <div>
+                        <label>tipe mobil </label>
+                        <input type="text" name="mobil_type" value="<?= $data[
+                            'mobil_type'
+                        ] ?>" require>
+                    </div>
+                    <div>
+                        <label>no plat mobil </label>
+                        <input type="text" name="mobil_no_plat" value="<?= $data[
+                            'mobil_no_plat'
+                        ] ?>" require>
+                    </div>
+
+                    <div>
+                        <label>layanan servis </label>
+                        <input type="text" name="mobil_komplain" value="<?= $data[
+                            'mobil_komplain'
+                        ] ?>" require>
+                    </div>
+
+                    <div>
+                        <label>nama owner </label>
+                        <input type="text" name="mobil_owner" value="<?= $data[
+                            'mobil_owner'
+                        ] ?>" require>
+                    </div>
+                    <div>
+                        <label>address </label>
+                        <input type="textarea" name="mobil_address" value="<?= $data[
+                            'mobil_address'
+                        ] ?>" require>
+                    </div>
+
+                    <div>
+                        <label>Phone </label>
+                        <input type="number" name="mobil_phone" value="<?= $data[
+                            'mobil_phone'
+                        ] ?>" require>
+                    </div>
+
+                    <div>
+                        <label>tgl booking </label>
+                        <input type="date" name="mobil_booking_tgl" value="<?= $data[
+                            'mobil_booking_tgl'
+                        ] ?>" require>
+                    </div>
+
+                    <div>
+                        <label>tgl booking </label>
+                        <input type="time" name="mobil_booking_wkt" value="<?= $data[
+                            'mobil_booking_wkt'
+                        ] ?>" require>
+                    </div>
+
                     <input type="submit" name="save" value="save" require>
                     <input type="reset" name="reset" value="reset" require>
                     <input type="hidden" name="no_id_kendaraan" value="<?= $data[
                         'no_id_kendaraan'
                     ] ?>" require>
-                </td>
-            </tr>
-        </table>
-        <p><a href="read_mobil.php">CANCEL</a></p>
-    </form>
+                    <p><a href="read_mobil.php">CANCEL</a></p>
+                </div>
+            </div>
+        </form>
+    </section>
 </body>
 
 </html>

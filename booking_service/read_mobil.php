@@ -6,72 +6,110 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    <?php include 'css/style.css';
+    ?>
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
 </head>
 
 <body>
-    <div class="navbar">
-        <div>
-            <h1>PT.Onder Jaya</h1>
-        </div>
-        <div>
-            <h1>Service List</h1>
-        </div>
-    </div>
-    <div class="background-body">
-        <div class="text">
-            <ul>
-                <li>
-                    <a href="add_mobil.php">add service mobil</a>
-                </li>
-                <li>
-                    <a href="home.php">BACK TO THE MENU</a>
-                </li>
-            </ul>
-        </div>
-        <div>
-            <table border="1">
-                <tr>
-                    <th>no</th>
-                    <th>tipe mobil</th>
-                    <th>no plat</th>
-                    <th>keluhan</th>
-                    <th>owner</th>
-                    <th>address</th>
-                    <th>phone</th>
-                    <th>tanggal booking</th>
-                    <th>waktu booking</th>
-                    <th colspan="2">action</th>
-                </tr>
-                <?php
-                include 'connection.php';
-                $query = 'SELECT * FROM mobil_tb';
-                $mobils = mysqli_query($db_connection, $query);
+    <section class="header">
+        <a href="home.php" class="logo">PT.Onder Jaya</a>
+        <nav class="navbar">
+            <a href="read_mobil.php">add service </a>
+            <a href="pending_service.php">pending service </a>
+            <a href="pending_service.php">login </a>
+        </nav>
+        <div id="menu-btn" class="fas fa-bars"></div>
+    </section>
 
-                $i = 1;
-                foreach ($mobils as $data): ?>
-                <tr>
-                    <td><?php echo $i++; ?></td>
-                    <td><?php echo $data['mobil_type']; ?></td>
-                    <td><?php echo $data['mobil_no_plat']; ?></td>
-                    <td><?php echo $data['mobil_komplain']; ?></td>
-                    <td><?php echo $data['mobil_owner']; ?></td>
-                    <td><?php echo $data['mobil_address']; ?></td>
-                    <td><?php echo $data['mobil_phone']; ?></td>
-                    <td><?php echo $data['mobil_booking_tgl']; ?></td>
-                    <td><?php echo $data['mobil_booking_wkt']; ?></td>
-                    <td><a href="edit_mobil.php?id=<?= $data[
-                        'no_id_kendaraan'
-                    ] ?>">Edit mobil</a></td>
-                    <td><a href="delete_mobil.php?id=<?= $data[
-                        'no_id_kendaraan'
-                    ] ?>" onclick="return confirm('are you sure?')">delete pet</a></td>
-                </tr>
-                <?php endforeach;
-                ?>
-            </table>
-        </div>
-    </div>
+    <section class="box-table">
+        <div class="table-read">
+            <div class="box-menu">
+                <div class="menu-add">
+                    <ul>
+                        <li>
+                            <a href="add_mobil.php">add service mobil</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="menu-back">
+                    <ul>
+                        <li>
+                            <a href="home.php">BACK TO THE MENU</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="table-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>no</th>
+                            <th>tipe mobil</th>
+                            <th>no plat</th>
+                            <th>keluhan</th>
+                            <th>owner</th>
+                            <th>address</th>
+                            <th>phone</th>
+                            <th>tanggal booking</th>
+                            <th>waktu booking</th>
+                            <th colspan="2">action</th>
+                        </tr>
+                    </thead>
+                    <?php
+                    include 'connection.php';
+                    $query = 'SELECT * FROM mobil_tb';
+                    $mobils = mysqli_query($db_connection, $query);
 
+                    $i = 1;
+                    foreach ($mobils as $data): ?>
+                    <tr>
+                        <td data-header="no"><?php echo $i++; ?></td>
+                        <td data-header="TIPE"><?php echo $data[
+                            'mobil_type'
+                        ]; ?></td>
+                        <td data-header="No kendaraan"><?php echo $data[
+                            'mobil_no_plat'
+                        ]; ?></td>
+                        <td data-header="service"><?php echo $data[
+                            'mobil_komplain'
+                        ]; ?></td>
+                        <td data-header="Nama owner"><?php echo $data[
+                            'mobil_owner'
+                        ]; ?></td>
+                        <td data-header="alamat"><?php echo $data[
+                            'mobil_address'
+                        ]; ?></td>
+                        <td data-header="phon"><?php echo $data[
+                            'mobil_phone'
+                        ]; ?></td>
+                        <td data-header="tgl booking"><?php echo $data[
+                            'mobil_booking_tgl'
+                        ]; ?></td>
+                        <td data-header="waktu booking"><?php echo $data[
+                            'mobil_booking_wkt'
+                        ]; ?></td>
+                        <td><a href="edit_mobil.php?id=<?= $data[
+                            'no_id_kendaraan'
+                        ] ?>">Edit mobil</a></td>
+                        <td><a href="delete_mobil.php?id=<?= $data[
+                            'no_id_kendaraan'
+                        ] ?>" onclick="return confirm('are you sure?')">delete pet</a></td>
+                    </tr>
+                    <?php endforeach;
+                    ?>
+                </table>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

@@ -8,9 +8,9 @@ if (isset($_GET['id'])) {
     $delete = mysqli_query($db_connection, $query);
 
     if ($delete) {
+        header('location:read_mobil.php');
         echo '<p>mobil delete successfully ! </p>';
     } else {
         echo '<p>mobil delete failed ! </p>';
     }
 } ?>
-<p><a href="read_mobil.php">BACK TO mobil LIST</a></p>
