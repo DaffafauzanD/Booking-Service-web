@@ -9,8 +9,9 @@ if (isset($_POST['save'])) {
     $address = $_POST['mobil_address'];
     $phone = $_POST['mobil_phone'];
     $booking = $_POST['mobil_booking_tgl'];
+    $bookingwkt = $_POST['mobil_booking_wkt'];
 
-    $query = "INSERT INTO mobil_tb SET mobil_type='$type', mobil_no_plat='$noplat', mobil_komplain='$komplain', mobil_owner='$owner', mobil_address='$address', mobil_phone='$phone', mobil_booking_tgl='$booking'";
+    $query = "INSERT INTO mobil_tb SET mobil_type='$type', mobil_no_plat='$noplat', mobil_komplain='$komplain', mobil_owner='$owner', mobil_address='$address', mobil_phone='$phone', mobil_booking_tgl='$booking', mobil_booking_wkt='$bookingwkt'";
 
     $create = mysqli_query($db_connection, $query);
 
