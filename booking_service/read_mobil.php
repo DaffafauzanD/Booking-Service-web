@@ -1,3 +1,13 @@
+<?php
+session_start();
+if (!isset($_SESSION['login'])) {
+    echo "<script>alert ('Please login first !');window.location.replace('form_login_0014.php');</script>";
+}
+if ($_SESSION['usertype'] != 'Manager') {
+    echo "<script>alert ('Access Forbiden !');window.location.replace('index.php');</script>";
+    header('location:home.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -84,7 +94,7 @@
                         <td data-header="alamat"><?php echo $data[
                             'mobil_address'
                         ]; ?></td>
-                        <td data-header="phon"><?php echo $data[
+                        <td data-header="phone"><?php echo $data[
                             'mobil_phone'
                         ]; ?></td>
                         <td data-header="tgl booking"><?php echo $data[
