@@ -3,7 +3,7 @@ session_start();
 if (!isset($_SESSION['login'])) {
     echo "<script>alert ('Please login first !');window.location.replace('form_login_0014.php');</script>";
 }
-if ($_SESSION['usertype'] != 'Manager') {
+if ($_SESSION['usertype'] != 'admin') {
     echo "<script>alert ('Access Forbiden !');window.location.replace('index.php');</script>";
     header('location:home.php');
 }
@@ -26,15 +26,23 @@ if ($_SESSION['usertype'] != 'Manager') {
 </head>
 
 <body>
+    <!-- header section -->
     <section class="header">
         <a href="home.php" class="logo">PT.Onder Jaya</a>
         <nav class="navbar">
-            <a href="read_mobil.php">add service </a>
-            <a href="pending_service.php">pending service </a>
-            <a href="pending_service.php">login </a>
+            <?php if ($_SESSION['usertype'] == 'admin') { ?>
+            <a href="read_mobil.php">add service</a>
+            <?php } ?>
+            <a href="add_mobil.php">booking service</a>
+            <a href="pending_service.php">pending service</a>
+            <?php if ($_SESSION['usertype'] == 'admin,user') { ?>
+            <a href="login.php">login</a>
+            <?php } ?>
+            <a href="logout.php">logout</a>
         </nav>
         <div id="menu-btn" class="fas fa-bars"></div>
     </section>
+    <!-- end header section -->
 
     <section class="box-table">
         <div class="table-read">
@@ -42,7 +50,7 @@ if ($_SESSION['usertype'] != 'Manager') {
                 <div class="menu-add">
                     <ul>
                         <li>
-                            <a href="add_mobil.php">add service mobil</a>
+                            <a href="add_mobil.php">booking service</a>
                         </li>
                     </ul>
                 </div>
@@ -119,6 +127,7 @@ if ($_SESSION['usertype'] != 'Manager') {
     </section>
 
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
     <script src="js/script.js"></script>
 </body>
 

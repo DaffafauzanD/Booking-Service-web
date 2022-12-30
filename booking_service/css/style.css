@@ -37,6 +37,14 @@
     justify-content: space-between;
 }
 
+.heading-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 6rem;
+    text-transform: uppercase;
+    color: var(--black);
+}
+
 html {
     font-size: 62.5%;
     overflow-x: hidden;
@@ -175,19 +183,14 @@ section {
 
 .services .box-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(16rem, 1fr));
     gap: 1.5rem;
 }
 
 .services .box-container .box {
     padding: 3rem 2rem;
     text-align: center;
-    background: var(--main-color);
     cursor: pointer;
-}
-
-.services .box-container .box:hover {
-    background: var(--black);
 }
 
 .services .box-container .box img {
@@ -202,6 +205,124 @@ section {
 
 .services .box-container .box p {
     text-align: left;
+}
+
+.booking .book-form {
+    padding: 2rem;
+    background: var(--light-bg);
+}
+
+.booking .book-form .flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.booking .book-form .flex .inputBox {
+    flex: 1 1 41rem;
+}
+
+.booking .book-form .flex .inputBox input {
+    width: 100%;
+    padding: 1.2rem 1.4rem;
+    font-size: 1.6rem;
+    color: var(--light-black);
+    text-transform: none;
+    margin-top: 1.5rem;
+    border: var(--border);
+}
+
+.booking .book-form .flex .inputBox input:focus {
+    background: var(--black);
+    color: var(--white);
+}
+
+.booking .book-form .flex .inputBox input:focus::placeholder {
+    background: var(--black);
+    color: var(--light-white);
+}
+
+.booking .book-form .flex .inputBox label {
+    font-size: 1.5rem;
+    color: var(--light-black);
+}
+
+.booking .book-form .btn {
+    margin-top: 2rem;
+}
+
+.booking .book-form p {
+    font-size: 2rem;
+    margin-top: 2rem;
+}
+
+.booking .book-form a {
+    color: var(--black);
+}
+
+.invoice-box {
+    max-width: 800px;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #eee;
+    box-shadow: var(--box-shadow);
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.invoice-box table {
+    width: 100%;
+    line-height: inherit;
+    text-align: left;
+    background-color: var(--white);
+}
+
+.invoice-box table td {
+    padding: 5px;
+    vertical-align: top;
+}
+
+.invoice-box table tr td:nth-child(2) {
+    text-align: right;
+    color: #474747;
+}
+
+.invoice-box table tr.top table td {
+    padding-bottom: 20px;
+}
+
+.invoice-box table tr.information table td {
+    padding-bottom: 20px;
+}
+
+.invoice-box table tr.heading td {
+    background: rgb(216, 216, 216);
+    font-weight: bold;
+}
+
+.invoice-box table tr.details td {
+    padding-bottom: 20px;
+}
+
+.invoice-box table tr.item td {
+    border-bottom: 1px solid #eee;
+}
+
+.invoice-box table tr.information table td:nth-child(1) {
+    color: #000000;
+}
+
+.invoice-box table tr.information table td:nth-child(2) {
+    color: #4d5052;
+}
+
+#empty-book {
+    text-align: center;
+}
+
+.heading-table h1 {
+    color: var(--light-white);
+    background-color: var(--light-white);
 }
 
 .footer {
@@ -252,6 +373,24 @@ section {
     color: var(--main-color);
 }
 
+@media screen and (min-width: 1257px) {
+    .services .box-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .invoice-box table tr.top table td {
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+    .invoice-box {
+        font-size: small;
+    }
+}
+
 @media screen and (max-width: 667px) {
     .table-content td {
         background-color: rgb(216, 216, 216);
@@ -273,7 +412,12 @@ section {
     td {
         display: block;
         width: auto;
-        text-align: right;
+        text-align: center;
+    }
+    .invoice-box table tr td:nth-child(2) {
+        text-align: center;
+        float: inline-start;
+        color: #5c5c5c;
     }
     thead th::before {
         text-transform: uppercase;
@@ -311,9 +455,6 @@ section {
 }
 
 @media (max-width: 768px) {
-    .heading h1 {
-        font-size: 4rem;
-    }
     #menu-btn {
         display: inline-block;
         transition: 0.2s linear;
@@ -324,8 +465,8 @@ section {
     .header .navbar {
         position: absolute;
         top: 99%;
-        left: 0;
-        right: 0;
+        left: 0%;
+        right: 0%;
         background-color: var(--white);
         border-top: var(--border);
         padding: 2rem;

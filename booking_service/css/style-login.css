@@ -23,7 +23,7 @@
     border-radius: 5px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     background: #fff;
-    text-align: center;
+    /* text-align: center; */
     width: 500px;
 }
 
@@ -61,22 +61,116 @@
     color: #fff;
 }
 
-.form-container form p {
-    margin-top: 10px;
-    font-size: 20px;
-    color: #333;
-}
-
 .form-container form p a {
     color: crimson;
 }
 
-.error.msg {
-    margin: 10px 0;
-    display: block;
-    background: crimson;
+
+/* new css */
+
+
+/* Google Fonts - Poppins */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+.container {
+    position: relative;
+    max-width: 370px;
+    width: 100%;
+    padding: 25px;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.container header {
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+}
+
+.container form {
+    margin-top: 30px;
+}
+
+form .field {
+    margin-bottom: 20px;
+}
+
+form .input-field {
+    position: relative;
+    width: 100%;
+}
+
+.input-field input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    padding: 0 15px;
+}
+
+.invalid input {
+    border-color: #d93025;
+}
+
+.input-field .show-hide {
+    position: absolute;
+    right: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #919191;
+    cursor: pointer;
+    padding: 3px;
+}
+
+.field .error {
+    display: flex;
+    align-items: center;
+    margin-top: 6px;
+    color: #d93025;
+    font-size: 13px;
+    display: none;
+}
+
+.invalid .error {
+    display: flex;
+}
+
+.error .error-icon {
+    margin-right: 6px;
+    font-size: 15px;
+}
+
+.create-password .error {
+    align-items: flex-start;
+}
+
+.create-password .error-icon {
+    margin-top: 4px;
+}
+
+.button {
+    margin: 25px 0 6px;
+}
+
+.button input {
     color: #fff;
-    border-radius: 5px;
-    font-size: 20px;
-    padding: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    background-color: #4070f4;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button input:hover {
+    background-color: #0e4bf1;
+}
+
+.form-container .v-password {
+    display: none;
+}
+
+.form-container .s-password {
+    display: block;
 }

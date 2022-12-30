@@ -47,7 +47,10 @@ if (!isset($_SESSION['login'])) {
                 <div class="swiper-slide slide" style="background:url(image/img-1.jpg);">
                     <div class="content">
                         <span>aman,cepat,kencang</span>
-                        <h3>memberikan service terbaik</h3>
+
+                        <h3>memberikan service terbaik<?= $_SESSION[
+                            'username'
+                        ] ?></h3>
                         <a href="" class="btn">service</a>
                     </div>
                 </div>
@@ -75,90 +78,194 @@ if (!isset($_SESSION['login'])) {
     <!-- service section -->
 
     <section class="services">
-        <h1 class="heading-title"> struk booking
+        <h1 class="heading-title">
+            booking activity
             <div class="box-container">
+
+                <!-- struk booking -->
                 <div class="box">
-                    <img src="image/icon-1.png" alt="">
-                    <h3>struk booking</h3>
-                    <?php
-                    include 'connection.php';
-                    $query = 'SELECT * FROM mobil_tb';
-                    $mobils = mysqli_query($db_connection, $query);
-                    $i = 1;
-                    foreach ($mobils as $data): ?>
-                    <!-- <p><?php echo $i++; ?></p>
-                    <p><?php echo $data['mobil_type']; ?></p>
-                    <p><?php echo $data['mobil_no_plat']; ?></p>
-                    <p><?php echo $data['mobil_komplain']; ?></p>
-                    <p><?php echo $data['mobil_owner']; ?></p>
-                    <p><?php echo $data['mobil_address']; ?></p>
-                    <p><?php echo $data['mobil_phone']; ?></p>
-                    <p><?php echo $data['mobil_booking_tgl']; ?></p>
-                    <p><?php echo $data['mobil_booking_wkt']; ?></p> -->
-                    <?php endforeach;
-                    ?>
-                </div>
+                    <div class="invoice-box">
+                        <table cellpadding="0" cellspacing="0">
+                            <tr class="heading-table">struk booking</tr>
+                            <tr class="top">
+                                <td colspan="2">
 
+                                    <!-- judul tabel -->
+                                    <table>
+                                        <?php
+                                        include 'connection.php';
+                                        $query = 'SELECT * FROM mobil_tb';
+                                        $mobils = mysqli_query(
+                                            $db_connection,
+                                            $query
+                                        );
+
+                                        foreach ($mobils as $data):
+                                            if (
+                                                $data['mobil_owner'] ==
+                                                $_SESSION['username']
+                                            ) { ?>
+                                        <tr>
+                                            <td>
+                                                <h1>RECEIPT BOOKING</h1>
+                                            </td>
+                                            <td>
+                                                booking # : <?php echo $data[
+                                                    'no_id_kendaraan'
+                                                ]; ?> <br>
+                                                create : <?= date(
+                                                    'l, d M Y H:i:s',
+                                                    strtotime(
+                                                        $data['mobil_time']
+                                                    )
+                                                ) ?> <br>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Jl,Buah Batu , bandung <br>
+                                                phone: +62 9383 0239 <br>
+                                            </td>
+                                            <td>
+                                                PT.Onder Jaya<br>
+                                                40287
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!-- akhir judul tabel -->
+                                </td>
+                            </tr>
+                            <tr class="information">
+                                <td colspan="2">
+                                    <!-- inner tabel -->
+                                    <table>
+                                        <tr class="heading">
+                                            <td>item</td>
+                                            <td>Keterangan</td>
+                                        </tr>
+
+                                        <tr class="item">
+                                            <td>Tipe Mobil</td>
+                                            <td> <?php echo $data[
+                                                'mobil_type'
+                                            ]; ?></td>
+                                        </tr>
+
+                                        <tr class="item">
+                                            <td>Owner</td>
+                                            <td><?php echo $data[
+                                                'mobil_owner'
+                                            ]; ?></td>
+                                        </tr>
+
+                                        <tr class="item">
+                                            <td>Keluhan Mobil</td>
+                                            <td><?php echo $data[
+                                                'mobil_komplain'
+                                            ]; ?></td>
+                                        </tr>
+
+
+                                        <tr class="item">
+                                            <td>Tgl booking service</td>
+                                            <td> <?php echo $data[
+                                                'mobil_booking_tgl'
+                                            ]; ?></td>
+                                        </tr>
+
+                                        <tr class="item">
+                                            <td>Jam booking service</td>
+                                            <td><?php echo $data[
+                                                'mobil_booking_wkt'
+                                            ]; ?></td>
+                                        </tr>
+                                        <?php }
+                                        endforeach;
+                                        ?>
+
+                                    </table>
+
+                                    <!-- end inner tabel -->
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <!-- akhir struk booking -->
+
+                <!-- awal antrian booking -->
                 <div class="box">
-                    <img src="image/icon-2.png" alt="">
-                    <h3>struk booking</h3>
-                    <?php
-                    include 'connection.php';
-                    $query = 'SELECT * FROM mobil_tb';
-                    $mobils = mysqli_query($db_connection, $query);
+                    <div class="invoice-box">
+                        <table cellpadding="0" cellspacing="0">
+                            <tr class="top">
+                            <tr class="heading-table">booking list</tr>
+                            <td colspan="2">
+                                <!-- awal judul tabel -->
+                                <table>
+                                    <?php
+                                    include 'connection.php';
+                                    $query = 'SELECT * FROM mobil_tb';
+                                    $mobils = mysqli_query(
+                                        $db_connection,
+                                        $query
+                                    );
+                                    $i = 1;
+                                    foreach ($mobils as $data):
+                                        if (
+                                            $data['mobil_owner'] !=
+                                            $_SESSION['username']
+                                        ) { ?>
+                                    <tr>
+                                        <td>
+                                            <h1>NO</h1>
+                                        </td>
+                                        <td>
+                                            <h1><?php echo $i++; ?></h1>
+                                        </td>
+                                    </tr>
 
-                    $i = 1;
-                    foreach ($mobils as $data): ?>
-                    <?php endforeach;
-                    ?>
+                                </table>
+                                <!-- akhir judul tabel -->
+                            </td>
+                            </tr>
+                            <tr class="information">
+                                <td colspan="2">
+                                    <!-- inner tabel -->
+                                    <table>
+                                        <tr class="item">
+                                            <td>Tgl booking service</td>
+                                            <td> <?php echo $data[
+                                                'mobil_booking_tgl'
+                                            ]; ?></td>
+                                        </tr>
+
+                                        <tr class="item">
+                                            <td>owner</td>
+                                            <td> <?php echo $data[
+                                                'mobil_owner'
+                                            ]; ?></td>
+                                        </tr>
+
+                                        <tr class="item">
+                                            <td>Jam booking service</td>
+                                            <td><?php echo $data[
+                                                'mobil_booking_wkt'
+                                            ]; ?></td>
+                                        </tr>
+                                        <?php }
+                                    endforeach;
+                                    ?>
+                                    </table>
+                                    <!-- end inner tabel -->
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
-
-                <div class="box">
-                    <img src="image/icon-3.png" alt="">
-                    <h3>struk booking</h3>
-                    <?php
-                    include 'connection.php';
-                    $query = 'SELECT * FROM mobil_tb';
-                    $mobils = mysqli_query($db_connection, $query);
-
-                    $i = 1;
-                    foreach ($mobils as $data): ?>
-                    <?php endforeach;
-                    ?>
-                </div>
-
-                <div class="box">
-                    <img src="image/icon-3.png" alt="">
-                    <h3>struk booking</h3>
-                    <?php
-                    include 'connection.php';
-                    $query = 'SELECT * FROM mobil_tb';
-                    $mobils = mysqli_query($db_connection, $query);
-
-                    $i = 1;
-                    foreach ($mobils as $data): ?>
-                    <?php endforeach;
-                    ?>
-                </div>
-
-                <div class="box">
-                    <img src="image/icon-4.png" alt="">
-                    <h3>struk booking</h3>
-                    <?php
-                    include 'connection.php';
-                    $query = 'SELECT * FROM mobil_tb';
-                    $mobils = mysqli_query($db_connection, $query);
-
-                    $i = 1;
-                    foreach ($mobils as $data): ?>
-                    <?php endforeach;
-                    ?>
-                </div>
-
+                <!-- akhir antrian booking -->
             </div>
         </h1>
     </section>
-
     <!-- end service section -->
 
 
