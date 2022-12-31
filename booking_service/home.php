@@ -26,13 +26,13 @@ if (!isset($_SESSION['login'])) {
     <section class="header">
         <a href="home.php" class="logo">PT.Onder Jaya</a>
         <nav class="navbar">
+            <a href="home.php">home</a>
             <?php if ($_SESSION['usertype'] == 'admin') { ?>
             <a href="read_mobil.php">add service</a>
             <?php } ?>
             <a href="add_mobil.php">booking service</a>
+            <?php if ($_SESSION['usertype'] == 'user') { ?>
             <a href="pending_service.php">pending service</a>
-            <?php if ($_SESSION['usertype'] == 'admin,user') { ?>
-            <a href="login.php">login</a>
             <?php } ?>
             <a href="logout.php">logout</a>
         </nav>
@@ -51,13 +51,14 @@ if (!isset($_SESSION['login'])) {
                         <h3>memberikan service terbaik<?= $_SESSION[
                             'username'
                         ] ?></h3>
+
                         <a href="" class="btn">service</a>
                     </div>
                 </div>
                 <div class="swiper-slide slide" style="background:url(image/img-2.jpg);">
                     <div class="content">
                         <span>aman,cepat,kencang</span>
-                        <h3>bersih seperti sediakala</h3>
+                        <h3><?= $_SESSION['usertype'] ?></h3>
                         <a href="" class="btn">service</a>
                     </div>
                 </div>
