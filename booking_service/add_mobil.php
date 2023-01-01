@@ -28,7 +28,7 @@ if (!isset($_SESSION['login'])) {
         <nav class="navbar">
             <a href="home.php">home</a>
             <?php if ($_SESSION['usertype'] == 'admin') { ?>
-            <a href="read_mobil.php">add service</a>
+            <a href="read_mobil.php">report service</a>
             <?php } ?>
             <a href="add_mobil.php">booking service</a>
             <?php if ($_SESSION['usertype'] == 'user') { ?>
@@ -80,8 +80,8 @@ if (!isset($_SESSION['login'])) {
                 </div>
             </div>
             <!-- end input -->
-            <input type="submit" name="save" value="save" class="btn" require>
-            <input type="reset" name="reset" value="reset" class="btn" require>
+            <input type="submit" name="save" value="save" class="btn">
+            <input type="reset" name="reset" value="reset" class="btn">
             <p><a href="read_mobil.php">CANCEL</a></p>
         </form>
     </section>

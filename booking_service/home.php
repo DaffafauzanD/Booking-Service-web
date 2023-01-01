@@ -28,11 +28,11 @@ if (!isset($_SESSION['login'])) {
         <nav class="navbar">
             <a href="home.php">home</a>
             <?php if ($_SESSION['usertype'] == 'admin') { ?>
-            <a href="read_mobil.php">add service</a>
+            <a href="read_mobil.php">report service</a>
             <?php } ?>
             <a href="add_mobil.php">booking service</a>
             <?php if ($_SESSION['usertype'] == 'user') { ?>
-            <a href="pending_service.php">pending service</a>
+            <a href="pending_service.php">history service</a>
             <?php } ?>
             <a href="logout.php">logout</a>
         </nav>
@@ -83,113 +83,109 @@ if (!isset($_SESSION['login'])) {
             booking activity
             <div class="box-container">
 
-                <!-- struk booking -->
+                <!-- awal struk booking -->
                 <div class="box">
                     <div class="invoice-box">
-                        <table cellpadding="0" cellspacing="0">
-                            <tr class="heading-table">struk booking</tr>
-                            <tr class="top">
-                                <td colspan="2">
+                        <h1 class="booking-table">struk booking</h1>
+                        <?php
+                        include 'connection.php';
+                        $query = 'SELECT * FROM mobil_tb';
+                        $mobils = mysqli_query($db_connection, $query);
+                        foreach ($mobils as $data):
+                            if (
+                                $data['mobil_owner'] == $_SESSION['username']
+                            ) { ?>
+                        <div class="in-table">
+                            <table cellpadding="0" cellspacing="0">
+                                <tr class="top">
+                                    <td colspan="2">
+                                        <!-- judul tabel -->
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <h1>RECEIPT BOOKING</h1>
+                                                </td>
+                                                <td>
+                                                    booking # : <?php echo $data[
+                                                        'no_id_kendaraan'
+                                                    ]; ?> <br>
+                                                    create : <?= date(
+                                                        'l, d M Y H:i:s',
+                                                        strtotime(
+                                                            $data['mobil_time']
+                                                        )
+                                                    ) ?> <br>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Jl,Buah Batu , bandung <br>
+                                                    phone: +62 9383 0239 <br>
+                                                </td>
+                                                <td>
+                                                    PT.Onder Jaya<br>
+                                                    40287
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <!-- akhir judul tabel -->
+                                    </td>
+                                </tr>
 
-                                    <!-- judul tabel -->
-                                    <table>
-                                        <?php
-                                        include 'connection.php';
-                                        $query = 'SELECT * FROM mobil_tb';
-                                        $mobils = mysqli_query(
-                                            $db_connection,
-                                            $query
-                                        );
+                                <tr class="information">
+                                    <td colspan="2">
+                                        <!-- inner tabel -->
+                                        <table>
+                                            <tr class="heading">
+                                                <td>item</td>
+                                                <td>Keterangan</td>
+                                            </tr>
 
-                                        foreach ($mobils as $data):
-                                            if (
-                                                $data['mobil_owner'] ==
-                                                $_SESSION['username']
-                                            ) { ?>
-                                        <tr>
-                                            <td>
-                                                <h1>RECEIPT BOOKING</h1>
-                                            </td>
-                                            <td>
-                                                booking # : <?php echo $data[
-                                                    'no_id_kendaraan'
-                                                ]; ?> <br>
-                                                create : <?= date(
-                                                    'l, d M Y H:i:s',
-                                                    strtotime(
-                                                        $data['mobil_time']
-                                                    )
-                                                ) ?> <br>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Jl,Buah Batu , bandung <br>
-                                                phone: +62 9383 0239 <br>
-                                            </td>
-                                            <td>
-                                                PT.Onder Jaya<br>
-                                                40287
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <!-- akhir judul tabel -->
-                                </td>
-                            </tr>
-                            <tr class="information">
-                                <td colspan="2">
-                                    <!-- inner tabel -->
-                                    <table>
-                                        <tr class="heading">
-                                            <td>item</td>
-                                            <td>Keterangan</td>
-                                        </tr>
+                                            <tr class="item">
+                                                <td>Tipe Mobil</td>
+                                                <td> <?php echo $data[
+                                                    'mobil_type'
+                                                ]; ?></td>
+                                            </tr>
 
-                                        <tr class="item">
-                                            <td>Tipe Mobil</td>
-                                            <td> <?php echo $data[
-                                                'mobil_type'
-                                            ]; ?></td>
-                                        </tr>
+                                            <tr class="item">
+                                                <td>Owner</td>
+                                                <td><?php echo $data[
+                                                    'mobil_owner'
+                                                ]; ?></td>
+                                            </tr>
 
-                                        <tr class="item">
-                                            <td>Owner</td>
-                                            <td><?php echo $data[
-                                                'mobil_owner'
-                                            ]; ?></td>
-                                        </tr>
-
-                                        <tr class="item">
-                                            <td>Keluhan Mobil</td>
-                                            <td><?php echo $data[
-                                                'mobil_komplain'
-                                            ]; ?></td>
-                                        </tr>
+                                            <tr class="item">
+                                                <td>Keluhan Mobil</td>
+                                                <td><?php echo $data[
+                                                    'mobil_komplain'
+                                                ]; ?></td>
+                                            </tr>
 
 
-                                        <tr class="item">
-                                            <td>Tgl booking service</td>
-                                            <td> <?php echo $data[
-                                                'mobil_booking_tgl'
-                                            ]; ?></td>
-                                        </tr>
+                                            <tr class="item">
+                                                <td>Tgl booking service</td>
+                                                <td> <?php echo $data[
+                                                    'mobil_booking_tgl'
+                                                ]; ?></td>
+                                            </tr>
 
-                                        <tr class="item">
-                                            <td>Jam booking service</td>
-                                            <td><?php echo $data[
-                                                'mobil_booking_wkt'
-                                            ]; ?></td>
-                                        </tr>
-                                        <?php }
-                                        endforeach;
-                                        ?>
+                                            <tr class="item">
+                                                <td>Jam booking service</td>
+                                                <td><?php echo $data[
+                                                    'mobil_booking_wkt'
+                                                ]; ?></td>
+                                            </tr>
+                                        </table>
+                                        <!-- end inner tabel -->
 
-                                    </table>
-
-                                    <!-- end inner tabel -->
-                                </td>
-                            </tr>
-                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <?php }
+                        endforeach;
+                        ?>
                     </div>
                 </div>
                 <!-- akhir struk booking -->
@@ -197,73 +193,73 @@ if (!isset($_SESSION['login'])) {
                 <!-- awal antrian booking -->
                 <div class="box">
                     <div class="invoice-box">
-                        <table cellpadding="0" cellspacing="0">
-                            <tr class="top">
-                            <tr class="heading-table">booking list</tr>
-                            <td colspan="2">
-                                <!-- awal judul tabel -->
-                                <table>
-                                    <?php
-                                    include 'connection.php';
-                                    $query = 'SELECT * FROM mobil_tb';
-                                    $mobils = mysqli_query(
-                                        $db_connection,
-                                        $query
-                                    );
-                                    $i = 1;
-                                    foreach ($mobils as $data):
-                                        if (
-                                            $data['mobil_owner'] !=
-                                            $_SESSION['username']
-                                        ) { ?>
-                                    <tr>
-                                        <td>
-                                            <h1>NO</h1>
-                                        </td>
-                                        <td>
-                                            <h1><?php echo $i++; ?></h1>
-                                        </td>
-                                    </tr>
+                        <h1 class="heading-table">booking list </h1>
+                        <?php
+                        include 'connection.php';
+                        $query = 'SELECT * FROM mobil_tb';
+                        $mobils = mysqli_query($db_connection, $query);
+                        $i = 1;
+                        foreach ($mobils as $data):
+                            if (
+                                $data['mobil_owner'] != $_SESSION['username']
+                            ) { ?>
+                        <div class="in-table">
+                            <table cellpadding="0" cellspacing="0">
+                                <tr class="top">
+                                    <td colspan="2">
+                                        <!-- awal judul tabel -->
+                                        <table>
 
-                                </table>
-                                <!-- akhir judul tabel -->
-                            </td>
-                            </tr>
-                            <tr class="information">
-                                <td colspan="2">
-                                    <!-- inner tabel -->
-                                    <table>
-                                        <tr class="item">
-                                            <td>Tgl booking service</td>
-                                            <td> <?php echo $data[
-                                                'mobil_booking_tgl'
-                                            ]; ?></td>
-                                        </tr>
+                                            <tr>
+                                                <td>
+                                                    <h1>NO</h1>
+                                                </td>
+                                                <td>
+                                                    <h1><?php echo $i++; ?></h1>
+                                                </td>
+                                            </tr>
 
-                                        <tr class="item">
-                                            <td>owner</td>
-                                            <td> <?php echo $data[
-                                                'mobil_owner'
-                                            ]; ?></td>
-                                        </tr>
+                                        </table>
+                                        <!-- akhir judul tabel -->
+                                    </td>
+                                </tr>
+                                <tr class="information">
+                                    <td colspan="2">
+                                        <!-- inner tabel -->
+                                        <table>
+                                            <tr class="item">
+                                                <td>Tgl booking service</td>
+                                                <td> <?php echo $data[
+                                                    'mobil_booking_tgl'
+                                                ]; ?></td>
+                                            </tr>
 
-                                        <tr class="item">
-                                            <td>Jam booking service</td>
-                                            <td><?php echo $data[
-                                                'mobil_booking_wkt'
-                                            ]; ?></td>
-                                        </tr>
-                                        <?php }
-                                    endforeach;
-                                    ?>
-                                    </table>
-                                    <!-- end inner tabel -->
-                                </td>
-                            </tr>
-                        </table>
+                                            <tr class="item">
+                                                <td>Tipe mobil</td>
+                                                <td> <?php echo $data[
+                                                    'mobil_type'
+                                                ]; ?></td>
+                                            </tr>
+
+                                            <tr class="item">
+                                                <td>Jam booking service</td>
+                                                <td><?php echo $data[
+                                                    'mobil_booking_wkt'
+                                                ]; ?></td>
+                                            </tr>
+                                        </table>
+                                        <!-- end inner tabel -->
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <?php }
+                        endforeach;
+                        ?>
                     </div>
                 </div>
                 <!-- akhir antrian booking -->
+
             </div>
         </h1>
     </section>

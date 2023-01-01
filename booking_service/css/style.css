@@ -206,7 +206,8 @@ section {
     flex: 1 1 41rem;
 }
 
-.booking .book-form .flex .inputBox input {
+.booking .book-form .flex .inputBox input,
+select {
     width: 100%;
     padding: 1.2rem 1.4rem;
     font-size: 1.6rem;
@@ -244,6 +245,10 @@ section {
     color: var(--black);
 }
 
+.out_table {
+    margin-top: 10px;
+}
+
 .invoice-box {
     max-width: 800px;
     margin: auto;
@@ -259,6 +264,13 @@ section {
     line-height: inherit;
     text-align: left;
     background-color: var(--white);
+}
+
+.in-table {
+    display: flex;
+    margin-top: 10px;
+    border: 2px solid #dddddd;
+    border-radius: 5px;
 }
 
 .invoice-box table td {
@@ -309,6 +321,120 @@ section {
     background-color: var(--light-white);
 }
 
+
+/*  */
+
+.container-record {
+    display: grid;
+    grid-template-rows: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1.5rem
+}
+
+.table-record {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0.2em;
+    color: #4d5052;
+}
+
+.table-record .btn-record-box {
+    display: flex;
+    align-content: space-around;
+    font-size: 1.7rem;
+}
+
+.btn-record-box .btn-record:nth-child(2) {
+    padding-right: 0.1rem;
+}
+
+.btn-record-box .btn-record:nth-child(1) {
+    padding-right: 8rem;
+}
+
+.btn-record a {
+    color: var(--light-black);
+    transition: 200ms ease-in-out;
+}
+
+.btn-record a:hover {
+    padding: 5px;
+    color: var(--white);
+    background-color: #474747;
+    border-radius: 2px;
+    transition: 200ms ease-in-out;
+}
+
+.table-record h1 {
+    font-weight: normal;
+    font-size: 4rem;
+    letter-spacing: -1px;
+    color: #474747;
+}
+
+.record-table {
+    margin: 1em 0;
+    min-width: 320px;
+    box-shadow: var(--box-shadow);
+    color: rgb(80, 80, 80);
+    border-radius: .4em;
+    overflow: hidden;
+}
+
+.record-table tr {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-color: #46637f;
+}
+
+.record-table th,
+.record-table td {
+    text-align: left;
+    margin: .5em 1em;
+    font-size: 14px;
+}
+
+.record-table th {
+    display: none;
+}
+
+.record-table td {
+    display: block;
+}
+
+.record-table td:first-child {
+    padding-top: .5em;
+}
+
+.record-table td:last-child {
+    padding-bottom: .5em;
+}
+
+.record-table td::before {
+    content: attr(data-th) ": ";
+    font-weight: bold;
+    width: 6.5em;
+    display: inline-block;
+    color: rgb(48, 48, 48);
+}
+
+.record-table th,
+.record-table::before {
+    color: rgb(68, 68, 68);
+}
+
+.record-table a {
+    color: #dd5;
+}
+
+.record-table a:hover {
+    color: rgb(216, 216, 207);
+}
+
+
+/*  */
+
 .container-table {
     display: flex;
     justify-content: center;
@@ -320,13 +446,14 @@ section {
 
 .container-table h1 {
     font-weight: normal;
+    font-size: 4rem;
     letter-spacing: -1px;
     color: #474747;
 }
 
 .data-table {
     margin: 1em 0;
-    min-width: 300px;
+    min-width: 320px;
     background-color: #34395e;
     color: #fff;
     border-radius: .4em;
@@ -511,6 +638,9 @@ section {
     color: var(--main-color);
 }
 
+
+/* media query */
+
 @media (min-width: 1200px) {
     .read-table td::before {
         display: none;
@@ -532,7 +662,34 @@ section {
     }
 }
 
-@media screen and (min-width: 600px) {
+@media (min-width:760px) {
+    .record-table td::before {
+        display: none;
+    }
+    .record-table th,
+    .record-table td {
+        display: table-cell;
+        padding: .25em .5em;
+        padding: 1em !important;
+        font-size: 17px;
+    }
+    .record-table th:first-child,
+    .record-table td:first-child {
+        padding-left: 0%;
+    }
+    .record-table th:last-child,
+    .record-table td:last-child {
+        padding-right: 0%;
+    }
+    .btn-record-box .btn-record:nth-child(2) {
+        padding-right: 52rem;
+    }
+    .btn-record-box .btn-record:nth-child(1) {
+        padding-right: 4.5rem;
+    }
+}
+
+@media screen and (min-width: 760px) {
     .data-table td::before {
         display: none;
     }
@@ -568,6 +725,11 @@ section {
     }
     .invoice-box {
         font-size: small;
+    }
+    .in-table {
+        display: flex;
+        margin-top: 10px;
+        border: none;
     }
 }
 

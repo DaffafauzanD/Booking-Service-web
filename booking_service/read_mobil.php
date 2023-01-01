@@ -32,11 +32,11 @@ if ($_SESSION['usertype'] != 'admin') {
         <nav class="navbar">
             <a href="home.php">home</a>
             <?php if ($_SESSION['usertype'] == 'admin') { ?>
-            <a href="read_mobil.php">add service</a>
+            <a href="read_mobil.php">report service</a>
             <?php } ?>
             <a href="add_mobil.php">booking service</a>
             <?php if ($_SESSION['usertype'] == 'user') { ?>
-            <a href="pending_service.php">pending service</a>
+            <a href="pending_service.php">history service</a>
             <?php } ?>
             <a href="logout.php">logout</a>
         </nav>
