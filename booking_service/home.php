@@ -16,6 +16,7 @@ if (!isset($_SESSION['login'])) {
     <?php include 'css/style.css';
     ?>
     </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
@@ -82,11 +83,18 @@ if (!isset($_SESSION['login'])) {
         <h1 class="heading-title">
             booking activity
             <div class="box-container">
-
                 <!-- awal struk booking -->
                 <div class="box">
-                    <div class="invoice-box">
-                        <h1 class="booking-table">struk booking</h1>
+                    <div class="menu-booking">
+                        <div>
+                            <h1 class="booking-table">struk booking</h1>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-angle-down aktif" onclick="showd()"></i>
+                        </div>
+                    </div>
+                    <div class="invoice-box test1">
+
                         <?php
                         include 'connection.php';
                         $query = 'SELECT * FROM mobil_tb';
@@ -192,8 +200,15 @@ if (!isset($_SESSION['login'])) {
 
                 <!-- awal antrian booking -->
                 <div class="box">
-                    <div class="invoice-box">
-                        <h1 class="heading-table">booking list </h1>
+                    <div class="menu-booking">
+                        <div>
+                            <h1 class="booking-table">booking list</h1>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-angle-down aktiflist" onclick="showa()"></i>
+                        </div>
+                    </div>
+                    <div class="invoice-box list">
                         <?php
                         include 'connection.php';
                         $query = 'SELECT * FROM mobil_tb';
@@ -203,7 +218,7 @@ if (!isset($_SESSION['login'])) {
                             if (
                                 $data['mobil_owner'] != $_SESSION['username']
                             ) { ?>
-                        <div class="in-table">
+                        <div class="in-table test2">
                             <table cellpadding="0" cellspacing="0">
                                 <tr class="top">
                                     <td colspan="2">
@@ -260,6 +275,7 @@ if (!isset($_SESSION['login'])) {
                 </div>
                 <!-- akhir antrian booking -->
 
+
             </div>
         </h1>
     </section>
@@ -304,6 +320,7 @@ if (!isset($_SESSION['login'])) {
 
 
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/63807ffb7d.js" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
 </body>
 

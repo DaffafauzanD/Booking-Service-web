@@ -47,7 +47,7 @@ if ($_SESSION['usertype'] != 'admin') {
     $querypet = "SELECT * FROM mobil_tb WHERE no_id_kendaraan='$_GET[id_mobil]'";
     $pet = mysqli_query($db_connection, $querypet);
     $data1 = mysqli_fetch_assoc($pet);
-    $querydoc = 'SELECT * FROM user_tb';
+    $querydoc = 'SELECT * FROM user_tb WHERE user_usertype LIKE "admin"';
     $doctor = mysqli_query($db_connection, $querydoc);
     ?>
     <div class="table-record">
@@ -109,14 +109,14 @@ if ($_SESSION['usertype'] != 'admin') {
             <input type="submit" name="save" value="SAVE" class="btn">
             <input type="reset" name="reset" value="RESET" class="btn">
             <input type="hidden" name="id_mobil" value="<?= $data1[
-                        'no_id_kendaraan'
-                    ] ?>">
+                'no_id_kendaraan'
+            ] ?>">
             <input type="hidden" name="id_user" value="<?= $data2[
-                        'no_id_user'
-                    ] ?>">
+                'no_id_user'
+            ] ?>">
             <p><a href="data_mobil.php?id_mobil=<?= $data1[
-        'no_id_kendaraan'
-    ] ?>">cancel</a></p>
+                'no_id_kendaraan'
+            ] ?>">cancel</a></p>
         </form>
     </section>
 
