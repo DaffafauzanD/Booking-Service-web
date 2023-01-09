@@ -32,9 +32,6 @@ if (!isset($_SESSION['login'])) {
             <a href="read_mobil.php">report service</a>
             <?php } ?>
             <a href="add_mobil.php">booking service</a>
-            <?php if ($_SESSION['usertype'] == 'user') { ?>
-            <a href="pending_service.php">history service</a>
-            <?php } ?>
             <a href="logout.php">logout</a>
         </nav>
         <div id="menu-btn" class="fas fa-bars"></div>
@@ -48,18 +45,14 @@ if (!isset($_SESSION['login'])) {
                 <div class="swiper-slide slide" style="background:url(image/img-1.jpg);">
                     <div class="content">
                         <span>aman,cepat,kencang</span>
-
-                        <h3>memberikan service terbaik<?= $_SESSION[
-                            'username'
-                        ] ?></h3>
-
+                        <h3>memberikan service yang unggul</h3>
                         <a href="" class="btn">service</a>
                     </div>
                 </div>
                 <div class="swiper-slide slide" style="background:url(image/img-2.jpg);">
                     <div class="content">
                         <span>aman,cepat,kencang</span>
-                        <h3><?= $_SESSION['usertype'] ?></h3>
+                        <h3>you login as <?= $_SESSION['usertype'] ?></h3>
                         <a href="" class="btn">service</a>
                     </div>
                 </div>

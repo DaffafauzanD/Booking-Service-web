@@ -45,7 +45,7 @@ if ($_SESSION['usertype'] != 'admin') {
     <!-- end header section -->
 
     <section>
-
+        <h1 class="heading-title"> report service</h1>
         <div class="container-read">
             <table class="read-table">
                 <tr>
@@ -97,13 +97,12 @@ if ($_SESSION['usertype'] != 'admin') {
                     ] ?>">Edit mobil</a></td>
                     <td data-th="delete"><a href="delete_mobil.php?id=<?= $data[
                         'no_id_kendaraan'
-                    ] ?>" onclick="return confirm('are you sure?')">delete pet</a></td>
+                    ] ?>" onclick="return confirm('are you sure?')">delete</a></td>
                 </tr>
                 <?php endforeach;
                 ?>
             </table>
         </div>
-
     </section>
 
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>

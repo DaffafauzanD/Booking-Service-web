@@ -118,6 +118,7 @@ if ($_SESSION['usertype'] != 'admin') {
                 'no_id_kendaraan'
             ] ?>">cancel</a></p>
         </form>
+
     </section>
 
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>

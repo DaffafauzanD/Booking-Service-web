@@ -63,7 +63,7 @@ if ($_SESSION['usertype'] != 'admin') {
                     ] ?>">Add New Records</a></p>
                 </div>
                 <div class="btn-record">
-                    <p><a href="read_mobil.php">Back to Pet List</a></p>
+                    <p><a href="read_mobil.php">Back to report List</a></p>
                 </div>
             </div>
             <table class="record-table">
@@ -96,7 +96,7 @@ if ($_SESSION['usertype'] != 'admin') {
                     <th>No</th>
                     <th>Date</th>
                     <th>Tipe mobil</th>
-                    <th>Owner</th>
+                    <th>admin</th>
                     <th>keluhan mobil</th>
                     <th>Service Treatment</th>
                     <th>Cost ($)</th>
