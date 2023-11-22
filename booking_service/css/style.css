@@ -37,6 +37,14 @@
     justify-content: space-between;
 }
 
+.heading-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 6rem;
+    text-transform: uppercase;
+    color: var(--black);
+}
+
 html {
     font-size: 62.5%;
     overflow-x: hidden;
@@ -102,6 +110,20 @@ section {
     min-height: 60rem;
 }
 
+.aktif {
+    font-size: 30px;
+    padding-left: 20px;
+}
+
+.aktiflist {
+    font-size: 30px;
+    padding-left: 20px;
+}
+
+.contain {
+    display: flex;
+}
+
 .btn {
     display: inline-block;
     background: var(--black);
@@ -157,59 +179,591 @@ section {
     justify-content: center;
 }
 
-.table-content {
-    background-color: rgb(202, 202, 202);
-    font-size: 17px;
+.menu-booking {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    border-radius: 4px;
+    transition: 200ms ease-in-out;
+    padding-left: 30px;
 }
 
-.table-content th {
-    background-color: rgb(122, 122, 122);
+.menu-booking:hover {
+    background: rgb(255, 255, 255);
+    box-shadow: 0 1.5rem 5rem rgba(0, 0, 0, 0.3);
+}
+
+.services .box-container {
+    display: grid;
+    grid-template-rows: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1.5rem;
+}
+
+.services .box-container .box {
+    padding: 3rem 2rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.services .box-container .box img {
+    height: 7rem;
+}
+
+.services .box-container .box h3 {
+    color: var(--white);
+    font-size: 1.7rem;
+    padding-top: 1rem;
+}
+
+.services .box-container .box p {
+    text-align: left;
+}
+
+.booking .book-form {
+    padding: 2rem;
+    background: var(--light-bg);
+}
+
+.booking .book-form .flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.booking .book-form .flex .inputBox {
+    flex: 1 1 41rem;
+}
+
+.booking .book-form .flex .inputBox input,
+select {
+    width: 100%;
+    padding: 1.2rem 1.4rem;
+    font-size: 1.6rem;
+    color: var(--light-black);
+    text-transform: none;
+    margin-top: 1.5rem;
+    border: var(--border);
+}
+
+.booking .book-form .flex .inputBox input:focus {
+    background: var(--black);
+    color: var(--white);
+}
+
+.booking .book-form .flex .inputBox input:focus::placeholder {
+    background: var(--black);
+    color: var(--light-white);
+}
+
+.booking .book-form .flex .inputBox label {
+    font-size: 1.5rem;
+    color: var(--light-black);
+}
+
+.booking .book-form .btn {
+    margin-top: 2rem;
+}
+
+.booking .book-form p {
+    font-size: 2rem;
+    margin-top: 2rem;
+}
+
+.booking .book-form a {
+    color: var(--black);
+}
+
+.out_table {
+    margin-top: 10px;
+}
+
+.invoice-box {
+    max-width: 800px;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #eee;
+    box-shadow: var(--box-shadow);
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.invoice-box table {
+    width: 100%;
+    line-height: inherit;
+    text-align: left;
+    background-color: var(--white);
+}
+
+.in-table {
+    display: flex;
+    margin-top: 10px;
+    border: 2px solid #dddddd;
+    border-radius: 5px;
+    transition: 200ms;
+}
+
+.off {
+    display: none;
+}
+
+.invoice-box table td {
     padding: 5px;
-    color: rgb(8, 8, 8);
+    vertical-align: top;
 }
 
-.table-content td {
-    padding: 3px;
-    background-color: rgb(145, 145, 145);
+.invoice-box table tr td:nth-child(2) {
+    text-align: right;
+    color: #474747;
 }
 
-@media screen and (max-width: 667px) {
-    .table-content td {
-        background-color: rgb(216, 216, 216);
-        border-top: 1px solid #f1f1f1;
-    }
-    table {
-        width: 100%;
-        border: 5px rgb(202, 202, 202);
-    }
-    thead th.column-primary {
-        width: 100%;
-    }
-    thead th:not(.column-primary) {
+.invoice-box table tr.top table td {
+    padding-bottom: 20px;
+}
+
+.invoice-box table tr.information table td {
+    padding-bottom: 20px;
+}
+
+.invoice-box table tr.heading td {
+    background: rgb(216, 216, 216);
+    font-weight: bold;
+}
+
+.invoice-box table tr.details td {
+    padding-bottom: 20px;
+}
+
+.invoice-box table tr.item td {
+    border-bottom: 1px solid #eee;
+}
+
+.invoice-box table tr.information table td:nth-child(1) {
+    color: #000000;
+}
+
+.invoice-box table tr.information table td:nth-child(2) {
+    color: #4d5052;
+}
+
+#empty-book {
+    text-align: center;
+}
+
+.heading-table h1 {
+    color: var(--light-white);
+    background-color: var(--light-white);
+}
+
+
+/*  */
+
+.container-record {
+    display: grid;
+    grid-template-rows: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1.5rem
+}
+
+.table-record {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0.2em;
+    color: #4d5052;
+}
+
+.table-record .btn-record-box {
+    display: flex;
+    align-content: space-around;
+    font-size: 1.7rem;
+}
+
+.btn-record-box .btn-record:nth-child(2) {
+    padding-right: 0.1rem;
+}
+
+.btn-record-box .btn-record:nth-child(1) {
+    padding-right: 8rem;
+}
+
+.btn-record a {
+    color: var(--light-black);
+    transition: 200ms ease-in-out;
+}
+
+.btn-record a:hover {
+    padding: 5px;
+    color: var(--white);
+    background-color: #474747;
+    border-radius: 2px;
+    transition: 200ms ease-in-out;
+}
+
+.table-record h1 {
+    font-weight: normal;
+    font-size: 4rem;
+    letter-spacing: -1px;
+    color: #474747;
+}
+
+.record-table {
+    margin: 1em 0;
+    min-width: 320px;
+    box-shadow: var(--box-shadow);
+    color: rgb(80, 80, 80);
+    border-radius: .4em;
+    overflow: hidden;
+}
+
+.record-table tr {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-color: #46637f;
+}
+
+.record-table th,
+.record-table td {
+    text-align: left;
+    margin: .5em 1em;
+    font-size: 14px;
+}
+
+.record-table th {
+    display: none;
+}
+
+.record-table td {
+    display: block;
+}
+
+.record-table td:first-child {
+    padding-top: .5em;
+}
+
+.record-table td:last-child {
+    padding-bottom: .5em;
+}
+
+.record-table td::before {
+    content: attr(data-th) ": ";
+    font-weight: bold;
+    width: 6.5em;
+    display: inline-block;
+    color: rgb(48, 48, 48);
+}
+
+.record-table th,
+.record-table::before {
+    color: rgb(68, 68, 68);
+}
+
+.record-table a {
+    color: #dd5;
+}
+
+.record-table a:hover {
+    color: rgb(216, 216, 207);
+}
+
+
+/*  */
+
+.container-table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0.2em;
+    color: #4d5052;
+}
+
+.container-table h1 {
+    font-weight: normal;
+    font-size: 4rem;
+    letter-spacing: -1px;
+    color: #474747;
+}
+
+.data-table {
+    margin: 1em 0;
+    min-width: 320px;
+    background-color: #34395e;
+    color: #fff;
+    border-radius: .4em;
+    overflow: hidden;
+}
+
+.data-table tr {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-color: #46637f;
+}
+
+.data-table th,
+.data-table td {
+    text-align: left;
+    margin: .5em 1em;
+    font-size: 13px;
+}
+
+.data-table th {
+    display: none;
+}
+
+.data-table td {
+    display: block;
+}
+
+.data-table td:first-child {
+    padding-top: .5em;
+}
+
+.data-table td:last-child {
+    padding-bottom: .5em;
+}
+
+.data-table td::before {
+    content: attr(data-th) ": ";
+    font-weight: bold;
+    width: 6.5em;
+    display: inline-block;
+    color: #dd5;
+}
+
+.data-table th,
+.data-table::before {
+    color: #dd5;
+}
+
+.data-table a {
+    color: #dd5;
+}
+
+.data-table a:hover {
+    color: rgb(216, 216, 207);
+}
+
+
+/*  */
+
+.container-read {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0.2em;
+    color: #4d5052;
+}
+
+.container-read h1 {
+    font-weight: normal;
+    letter-spacing: -1px;
+    color: #474747;
+}
+
+.read-table {
+    margin: 1em 0;
+    min-width: 300px;
+    background-color: #34395e;
+    color: #fff;
+    border-radius: .4em;
+    overflow: hidden;
+}
+
+.read-table tr {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-color: #46637f;
+}
+
+.read-table th,
+.read-table td {
+    text-align: left;
+    margin: .5em 1em;
+    font-size: 18px;
+}
+
+.read-table th {
+    display: none;
+}
+
+.read-table td {
+    display: block;
+}
+
+.read-table td:first-child {
+    padding-top: .5em;
+}
+
+.read-table td:last-child {
+    padding-bottom: .5em;
+}
+
+.read-table td::before {
+    content: attr(data-th) " : ";
+    font-weight: bold;
+    width: 6.7em;
+    display: inline-block;
+    color: #dd5;
+}
+
+.read-table th,
+.read-table::before {
+    color: #dd5;
+}
+
+.read-table a {
+    color: #dd5;
+}
+
+.read-table a:hover {
+    color: rgb(216, 216, 207);
+}
+
+
+/*  */
+
+.footer {
+    background-color: #777;
+    background-size: cover;
+    background-position: center;
+}
+
+.footer .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 3rem;
+}
+
+.footer .box-container .box h3 {
+    color: var(--white);
+    font-size: 2.5rem;
+    padding-bottom: 2rem;
+}
+
+.footer .box-container .box a {
+    color: var(--light-white);
+    font-size: 1.5rem;
+    padding-bottom: 1.5rem;
+    display: block;
+}
+
+.footer .box-container .box a i {
+    color: var(--main-color);
+    padding-right: 0.5rem;
+    transition: 0.2s linear;
+}
+
+.footer .box-container .box a:hover i {
+    padding-right: 2rem;
+}
+
+.footer .credit {
+    text-align: center;
+    padding-top: 3rem;
+    margin-top: 3rem;
+    border-top: 0.1rem solid var(--light-white);
+    font-size: 2rem;
+    color: var(--white);
+}
+
+.footer .credit span {
+    color: var(--main-color);
+}
+
+
+/* media query */
+
+@media (min-width: 1200px) {
+    .read-table td::before {
         display: none;
     }
-    th[scope="row"] {
-        vertical-align: top;
+    .read-table th,
+    .read-table td {
+        display: table-cell;
+        padding: .25em .5em;
+        padding: 1em !important;
+        font-size: 17px;
     }
-    td {
+    .read-table th:first-child,
+    .read-table td:first-child {
+        padding-left: 0%;
+    }
+    .read-table th:last-child,
+    .read-table td:last-child {
+        padding-right: 0%;
+    }
+}
+
+@media (min-width:760px) {
+    .record-table td::before {
+        display: none;
+    }
+    .record-table th,
+    .record-table td {
+        display: table-cell;
+        padding: .25em .5em;
+        padding: 1em !important;
+        font-size: 17px;
+    }
+    .record-table th:first-child,
+    .record-table td:first-child {
+        padding-left: 0%;
+    }
+    .record-table th:last-child,
+    .record-table td:last-child {
+        padding-right: 0%;
+    }
+    .btn-record-box .btn-record:nth-child(2) {
+        padding-right: 52rem;
+    }
+    .btn-record-box .btn-record:nth-child(1) {
+        padding-right: 4.5rem;
+    }
+}
+
+@media screen and (min-width: 760px) {
+    .data-table td::before {
+        display: none;
+    }
+    .data-table th,
+    .data-table td {
+        display: table-cell;
+        padding: .25em .5em;
+        padding: 1em !important;
+        font-size: 17px;
+    }
+    .data-table th:first-child,
+    .data-table td:first-child {
+        padding-left: 0%;
+    }
+    .data-table th:last-child,
+    .data-table td:last-child {
+        padding-right: 0%;
+    }
+}
+
+@media screen and (min-width: 1257px) {
+    .services .box-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .invoice-box table tr.top table td {
+        width: 100%;
         display: block;
-        width: auto;
-        text-align: right;
+        text-align: center;
     }
-    thead th::before {
-        text-transform: uppercase;
-        font-weight: bold;
-        content: attr(data-header);
+    .invoice-box {
+        font-size: small;
     }
-    thead th:first-child span {
-        display: none;
-    }
-    td::before {
-        float: left;
-        text-transform: uppercase;
-        font-weight: bold;
-        content: attr(data-header);
-        color: rgb(32, 32, 32);
+    .in-table {
+        display: flex;
+        margin-top: 10px;
+        border: none;
     }
 }
 
@@ -232,9 +786,6 @@ section {
 }
 
 @media (max-width: 768px) {
-    .heading h1 {
-        font-size: 4rem;
-    }
     #menu-btn {
         display: inline-block;
         transition: 0.2s linear;
@@ -245,8 +796,8 @@ section {
     .header .navbar {
         position: absolute;
         top: 99%;
-        left: 0;
-        right: 0;
+        left: 0%;
+        right: 0%;
         background-color: var(--white);
         border-top: var(--border);
         padding: 2rem;
